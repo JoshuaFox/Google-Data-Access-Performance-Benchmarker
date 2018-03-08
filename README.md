@@ -1,9 +1,9 @@
 # data-access-performance-benchmarker
 
-This tests performance of Google Datastore and to Memcache froma  Google App Engine Standard Environment service. New data sources can be easily added.
+This tests performance of persistence APIs  from a Google App Engine Standard Environment service.  Google Datastore Cloud, Datasore GAE API, mmemcached, and GAE Memcache APIs are supported and more can  be easily added.
 
 ## Usage: 
-- Be sure that `gcloud` is deployed and your default project is set
+- Be sure that `gcloud` is installed and your default project is set
 - If you want to test with memcached, edit `./src/main/webapp/WEB-INF/appengine-web.xml` to include credentials to a memcached instance.
 - Run `deployAndTest.sh`.
 - When it is done, run `buildCsvFromResultsFiles.sh` and open the `all-results.csv` in your favorite spreadsheet application.
@@ -25,7 +25,7 @@ This tests performance of Google Datastore and to Memcache froma  Google App Eng
   
 ## Command line execution
 
-For sanity testing of code un `mvn install exec:java  -Dgaeappid=`./getProjectId.sh` -Dmemcached.ip=MEMCACHED_IP -Dmemcached.user=MEMMCACHED_USER -Dmemcached.password=MEMCACHED_PASSWORD` replacing the System properties to reflect your memcached. This will only run tests with Datastore Cloud API and memcached, since GAE APIs do not allow remote access to a GAE project.
+For sanity testing of code un `mvn install exec:java  -Dgaeappid=`./getProjectId.sh` -Dmemcached.ip=MEMCACHED_IP -Dmemcached.user=MEMMCACHED_USER -Dmemcached.password=MEMCACHED_PASSWORD` replacing the System properties to reflect your memcached. This will only run tests against  Datastore Cloud API and memcached, since GAE APIs do not allow remote access to a GAE project.
 
 
 ## Adding new data sources
