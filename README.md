@@ -13,17 +13,16 @@ This tests performance of persistence APIs  from a Google App Engine Standard En
 
 ## Options:
 * Edit `repeatedlyTriggerEachApi.sh` to change the test. For example
-
   * Edit this list to remove or add data sources to be  tested:
 
     ```
     "com.freightos.memcache.MemcachedTester"
     "com.freightos.memcache.GaeMemcacheTester"
     "com.freightos.datastore.CloudDatastoreTester"
-    "com.freightos.datastore.GaeDatastoreTester"```
-
+    "com.freightos.datastore.GaeDatastoreTester"
+    ```
   * Change value of  `numberHttpCallsPerImplementation`to change number of loops. Each loop tests all data sources.
-  * Change value of `loopsInsideOneHttpRequest` to change the number of gets/puts/queries inside each HTTP call. Note that App Engine Stnadard Environment allow sonly 60 seonds per HTTP request.
+  * Change value of `loopsInsideOneHttpRequest` to change the number of gets/puts/queries inside each HTTP call. Note that App Engine Standard Environment allows only 60 seonds per HTTP request.
   * Change value of `bytesPerEntity` to set the size of the random byte array to be written/read in these tests.
 
 ## Command line execution
@@ -32,4 +31,4 @@ For sanity testing of code un `mvn install exec:java  -Dgaeappid=`./getProjectId
 
 
 ## Adding new data sources
-Implement the tester code -- for example, BigQuery, Cloud MySQL, or Postgres-- copying existing implementations as a template.  Declare these new tester classes in `./src/main/webapp/WEB-INF/appengine-web.xml`
+Implement a Java class to test a different data source -- for example, BigQuery, Cloud MySQL, or Postgres -- copying an existing implementation as a template.  Invoke the  new tester class by editing `repeatedlyTriggerEachApi.sh` 
