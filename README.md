@@ -27,7 +27,7 @@ This tests performance of persistence APIs  from a Google App Engine Standard En
 
 ## Command line execution
 
-For sanity testing of code run `mvn install exec:java  -Dgaeappid=``./getProjectId.sh`` -Dmemcached.ip=MEMCACHED_IP -Dmemcached.user=MEMMCACHED_USER -Dmemcached.password=MEMCACHED_PASSWORD` replacing the sstem properties to reflect your memcached. This will only run tests against  Datastore Cloud API and memcached, since GAE APIs do not allow remote access to a GAE project.
+For sanity testing of code run `mvn install exec:java  -Dgaeappid=$(./getProjectId.sh) -Dmemcached.ip=MEMCACHED_IP -Dmemcached.user=MEMMCACHED_USER -Dmemcached.password=MEMCACHED_PASSWORD` replacing the sstem properties to reflect your memcached. This will only run tests against  Datastore Cloud API and memcached, since GAE APIs do not allow remote access to a GAE project.
 
 
 ## Adding new data sources
